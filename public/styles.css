@@ -1,0 +1,286 @@
+.header {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(225, 225, 225);
+  padding: 50px;
+  height: 400px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgb(243, 243, 243)
+    ),
+    url("https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80");
+  background-size: cover;
+  margin-bottom: -100px;
+}
+
+.header h1 {
+  font-size: 100px;
+}
+
+.headerGoBack {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: none;
+  background-color: rgb(200, 200, 200);
+  border-radius: 500px;
+  width: 50px;
+  height: 50px;
+  color: rgb(67, 67, 67);
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.filterSection {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  gap: 10px;
+  flex-direction: column;
+}
+
+@media (min-width: 700px) {
+  .filterSection {
+    flex-direction: row;
+  }
+}
+
+.filterButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.filterButtons button {
+  border: none;
+  background-color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 100px;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+.formInput {
+  display: flex;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  width: 100%;
+  border-radius: 100px;
+  background-color: white;
+}
+
+.formInput input {
+  width: 100%;
+  border-radius: 100px;
+  border: none;
+  padding-left: 20px;
+}
+
+button {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  outline: 0;
+  transition: background 400ms;
+}
+
+.formInput button {
+  border-radius: 100px;
+  background: rgb(37, 39, 199);
+  background: linear-gradient(
+    90deg,
+    rgb(185, 0, 123) 0%,
+    rgb(255, 0, 132) 47%,
+    rgb(245, 22, 22) 100%
+  );
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  width: 130px;
+}
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: rgba(248, 248, 248, 0.7);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+body {
+  background-color: rgb(243, 243, 243);
+}
+
+.listBox {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+@media (min-width: 600px) {
+  .listBox {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .listBox {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.movieBox {
+  background-color: white;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  color: rgb(35, 35, 35);
+  text-decoration: none;
+}
+
+.movieBox button {
+  border: none;
+  background: transparent;
+}
+
+.movieBox img {
+  aspect-ratio: 2/3;
+}
+
+.movieBox div {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.movieBox i {
+  color: red;
+}
+
+a {
+  text-decoration: none;
+}
+
+.movieDetailBox {
+  display: flex;
+  max-width: 900px;
+  margin: 20px;
+  background-color: white;
+  overflow: hidden;
+  border-radius: 20px;
+  flex-direction: column;
+}
+
+@media (min-width: 500px) {
+  .movieDetailBox {
+    flex-direction: row;
+  }
+}
+
+.movieDetailImages {
+  flex: 3;
+}
+
+.movieDetailImages img {
+  aspect-ratio: 2/3;
+}
+
+.movieDetailImagesOverview {
+  display: flex;
+  width: 100%;
+  overflow-y: auto;
+  padding: 10px;
+  gap: 10px;
+}
+
+.movieDetailImagesOverview img {
+  height: 150px;
+  aspect-ratio: unset;
+}
+
+.movieDetailContent {
+  flex: 4;
+  padding: 20px;
+}
+
+.movieDetailContentHeader {
+  display: flex;
+}
+
+.movieDetailContentHeader h1 {
+  flex: 1;
+}
+
+.movieDetailContentHeader button {
+  color: red;
+  border: none;
+  background-color: transparent;
+  height: fit-content;
+  border-radius: 500px;
+}
+
+.movieDetailContent {
+  font-size: 30px;
+  color: rgb(65, 65, 65);
+}
+
+.movieDetailInfo {
+  color: rgb(0, 0, 0);
+  font-size: medium;
+}
+
+.movieGenreList {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.movieGenreItem {
+  background-color: rgb(206, 206, 206);
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: medium;
+}
+
+#moviePlot {
+  color: black;
+  font-size: medium;
+  padding-top: 10px;
+}
+
+.movieDetailText {
+  font-size: medium;
+  color: black;
+  padding-top: 5px;
+}
+
+.movieDetailTextBold {
+  font-weight: bold;
+}

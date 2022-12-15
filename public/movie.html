@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Cinema</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Move-It</h1>
+      <button class="headerGoBack" id="goBackButton">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+    </div>
+    <div class="content">
+      <div class="movieDetailBox">
+        <div class="movieDetailImages">
+          <img id="image" />
+          <div class="movieDetailImagesOverview" id="imagesList"></div>
+        </div>
+        <div class="movieDetailContent">
+          <div class="movieDetailContentHeader">
+            <h1 id="movieTitle"></h1>
+            <button id="movieLikeButton">
+              <i id="movieLikeIcon"></i>
+            </button>
+          </div>
+          <p class="movieDetailInfo">
+            <span id="movieRuntime"></span> - <span id="movieRoom"></span>
+          </p>
+          <div class="movieGenreList" id="genreList"></div>
+          <p id="moviePlot"></p>
+          <p class="movieDetailText">
+            <span class="movieDetailTextBold">Writer: </span>
+            <span id="movieWriter"></span>
+          </p>
+          <p class="movieDetailText">
+            <span class="movieDetailTextBold">Director: </span>
+            <span id="movieDirector"></span>
+          </p>
+          <p class="movieDetailText">
+            <span class="movieDetailTextBold">Actors: </span>
+            <span id="movieActors"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/f67469f908.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="movie.js"></script>
+    <script type="text/javascript" src="buttonRipple.js"></script>
+  </body>
+</html>

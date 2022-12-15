@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Cinema</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1 id="title">Move-It</h1>
+    </div>
+    <div class="content">
+      <div class="filterSection">
+        <div class="formInput">
+          <input type="text" id="input" placeholder="Search for a movie" />
+          <button id="formButton">Search</button>
+        </div>
+        <div class="filterButtons">
+          <button id="moviesTodayButton">Movies today</button>
+          <button id="sortMoviesButton">Sort alphabetically</button>
+        </div>
+      </div>
+
+      <div class="listBox" id="list"></div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/f67469f908.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="buttonRipple.js"></script>
+  </body>
+</html>
