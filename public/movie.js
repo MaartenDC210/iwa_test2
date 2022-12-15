@@ -17,6 +17,7 @@ const movieDetailMovieActors = document.getElementById('movieActors');
 const movieDetailMovieGenres = document.getElementById('genreList');
 const movieDetailMovieImages = document.getElementById('imagesList');
 const movieDetailIslikedButton = document.getElementById('movieLikeIcon');
+const movieDetailGoBackButton = document.getElementById('goBackButton');
 
 
 const onResponse = (response) => {
@@ -89,6 +90,11 @@ movieDetailIslikedButton.addEventListener("click", (event) => {
   else
     setIsMovieLikedForId(selectedMovie.Id, false);
 });
+
+movieDetailGoBackButton.addEventListener("click", (event) => {
+  history.back();
+});
+
 
 
 fetch("https://europe-west1-javascript-lessons-tijl.cloudfunctions.net/movies")
