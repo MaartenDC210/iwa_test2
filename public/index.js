@@ -1,10 +1,14 @@
-let movies = [];
-let inputText = "";
+const SPLIT_CHAR = ",";
 const movieList = document.getElementById("list");
 const searchButton = document.getElementById("formButton");
 const searchInput = document.getElementById("input");
 const moviesTodayFilterButton = document.getElementById("moviesTodayButton");
 const moviesAlpabeticFilterButton = document.getElementById("sortMoviesButton");
+
+let movies = [];
+let inputText = "";
+let likedMovies = localStorage.getItem("likedMovies");
+let arrayOfLikedMovies = likedMovies === null ? [] : likedMovies.split(SPLIT_CHAR);
 
 const onResponse = (response) => {
   movies = response;
@@ -12,10 +16,7 @@ const onResponse = (response) => {
     addMovieToDOM(movie);
    });
 };
-const SPLIT_CHAR = ",";
 
-let likedMovies = localStorage.getItem("likedMovies");
-let arrayOfLikedMovies = likedMovies === null ? [] : likedMovies.split(SPLIT_CHAR);
 
 const addMovieToDOM = (movie) => {
   const movieTile = document.createElement("a");
@@ -23,8 +24,10 @@ const addMovieToDOM = (movie) => {
   const movieImage = document.createElement("img");
   const movieBoxTitle = document.createElement("div");
   const movieTitle = document.createElement("p");
+  const movieHeartButton = document.createElement("button");
   const movieHeart = document.createElement("i");
 
+  handleHeart(movieHeartButton, movie.Id);
   
   movieBox.className = "movieBox";
   movieTitle.innerText = movie?.Title;
@@ -36,13 +39,14 @@ const addMovieToDOM = (movie) => {
   movieBox.appendChild(movieImage);
   movieBox.appendChild(movieBoxTitle);
   movieBoxTitle.appendChild(movieTitle);
-  movieBoxTitle.appendChild(movieHeart);
+  movieBoxTitle.appendChild(movieHeartButton);
+  movieHeartButton.appendChild(movieHeart);
 
   movieList.appendChild(movieTile);
 };
 
 const getHeartIcon = (movieId) => {
-   return getMovieIsLikedForId(movieId) ? 'fa-solid fa-heart' : 'fa-regular fa-heart';
+   return getMovieIsLikedForId(movieId) ? "fa-solid fa-heart" : "fa-regular fa-heart";
 }
 
 const getMovieIsLikedForId = (movieId) => {
@@ -81,12 +85,41 @@ const onFilterMoviesAlpabetic = () => {
   });
 }
 
+const setIsMovieLikedForId = (movieId, liked) => {
+  if(liked){
+    const newArrayOfLikedMovies = arrayOfLikedMovies;
+    newArrayOfLikedMovies.push(movieId);
+    localStorage.setItem("likedMovies", newArrayOfLikedMovies?.join(SPLIT_CHAR));
+    isLiked = true;
+  }
+  else{
+    const newArrayOfLikedMovies = arrayOfLikedMovies.filter( (m) => m !== movieId);
+    localStorage.setItem("likedMovies", newArrayOfLikedMovies?.join(SPLIT_CHAR));
+    isLiked = false;
+  }
+}
+
+const handleHeart = (button, movieId) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    if(getMovieIsLikedForId(movieId))
+      setIsMovieLikedForId(movieId, false);
+    else
+      setIsMovieLikedForId(movieId, true);
+  });
+}
+
+const createHeartButton = () =>{
+
+}
+
 searchButton.addEventListener("click", onSearchItems);
 searchInput.addEventListener("input", (event) => {
   inputText = event.target.value;
 });
 moviesTodayFilterButton.addEventListener("click", onFilterMoviesToday);
 moviesAlpabeticFilterButton.addEventListener("click", onFilterMoviesAlpabetic);
+
 
 fetch("https://europe-west1-javascript-lessons-tijl.cloudfunctions.net/movies")
   .then((res) => res.json())
